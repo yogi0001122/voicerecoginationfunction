@@ -53,8 +53,8 @@ stages:
     - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 
-- stage: Deploy
-  displayName: Deploy stage
+- stage: Release
+  displayName: Deploy on DEV
   dependsOn: Build
   condition: succeeded()
 
