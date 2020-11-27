@@ -85,7 +85,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     logging.info('Calling voicetotext_recog logic function')
     all_results = speech_recognize_continuous_from_file(download_file_path)
-    print("Printing all results:")
+    print("Printing all results: along with new output")
     #print (all_results)
     result = ''
     for line in all_results:
