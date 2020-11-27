@@ -81,7 +81,7 @@ stages:
 - stage: Release
   displayName: CERT
   dependsOn: Build
-  condition: and(contains(variables['build.sourceBranch'], 'refs/heads/dev'))
+  condition: eq(variables['build.sourceBranch'], 'refs/heads/dev')
 
   jobs:
   - deployment: Deploy
