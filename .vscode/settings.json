@@ -1,0 +1,13 @@
+{
+  "azureFunctions.deploySubpath": ".",
+  "azureFunctions.scmDoBuildDuringDeployment": true,
+  "azureFunctions.pythonVenv": ".venv",
+  "azureFunctions.projectLanguage": "Python",
+  "azureFunctions.projectRuntime": "~3",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureLogicAppsV2.deploySubpath": ".",
+  "azureLogicAppsV2.scmDoBuildDuringDeployment": true,
+  "azureLogicAppsV2.pythonVenv": ".venv",
+  "azureLogicAppsV2.projectLanguage": "Python",
+  "azureLogicAppsV2.projectRuntime": "~3"
+}

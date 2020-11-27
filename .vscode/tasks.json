@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "func",
+      "command": "host start",
+      "problemMatcher": "$func-watch",
+      "isBackground": true,
+      "dependsOn": "pipInstall"
+    },
+    {
+      "label": "pipInstall",
+      "type": "shell",
+      "osx": {
+        "command": "${config:azureLogicAppsV2.pythonVenv}/bin/python -m pip install -r requirements.txt"
+      },
+      "windows": {
+        "command": "${config:azureLogicAppsV2.pythonVenv}\\Scripts\\python -m pip install -r requirements.txt"
+      },
+      "linux": {
+        "command": "${config:azureLogicAppsV2.pythonVenv}/bin/python -m pip install -r requirements.txt"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
