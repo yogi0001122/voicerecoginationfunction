@@ -103,7 +103,7 @@ stages:
 
 - stage: ReleasePROD
   displayName: PROD
-  condition: and(eq(variables['build.sourceBranch'], 'refs/heads/cert'), succeeded())
+  condition: and(eq(variables['build.sourceBranch'], 'refs/heads/prod'), succeeded())
 
   jobs:
   - deployment: Deploy
