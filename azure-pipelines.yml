@@ -54,9 +54,34 @@ stages:
       artifact: drop
 
 - stage: Release
-  displayName: Deploy on DEV
+  displayName: DEV
   dependsOn: Build
   condition: succeeded()
+
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: 'dev'
+    pool:
+      vmImage: $(vmImageName)
+
+    strategy:
+      runOnce:
+        deploy:
+
+          steps:
+          - task: AzureFunctionApp@1
+            displayName: 'Azure functions app deploy'
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appType: functionAppLinux
+              appName: $(functionAppName)
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+
+- stage: Release
+  displayName: CERT
+  dependsOn: Build
+  condition: and(contains(variables['build.sourceBranch'], 'refs/heads/dev'))
 
   jobs:
   - deployment: Deploy
