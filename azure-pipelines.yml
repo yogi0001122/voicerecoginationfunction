@@ -53,7 +53,7 @@ stages:
     - publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 
-- stage: Release
+- stage: ReleaseDEV
   displayName: DEV
   dependsOn: Build
   condition: succeeded()
@@ -78,7 +78,7 @@ stages:
               appName: $(functionAppName)
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
 
-- stage: Release
+- stage: ReleaseCERT
   displayName: CERT
   dependsOn: Build
   condition: eq(variables['build.sourceBranch'], 'refs/heads/dev')
