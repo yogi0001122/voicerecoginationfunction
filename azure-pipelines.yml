@@ -85,6 +85,7 @@ stages:
   - deployment: Deploy
     displayName: FunctionApp
     environment: 'cert'
+
     pool:
       vmImage: $(vmImageName)
 
@@ -123,4 +124,4 @@ stages:
               azureSubscription: '$(azureSubscription)'
               appType: functionAppLinux
               appName: $(functionAppName)
-              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'             
