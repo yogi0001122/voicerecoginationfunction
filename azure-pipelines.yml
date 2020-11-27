@@ -60,7 +60,7 @@ stages:
 
   jobs:
   - deployment: Deploy
-    displayName: Deploy
+    displayName: FunctionApp
     environment: 'dev'
     pool:
       vmImage: $(vmImageName)
@@ -80,12 +80,12 @@ stages:
 
 - stage: ReleaseCERT
   displayName: CERT
-  dependsOn: Build
+  dependsOn: ReleaseDEV
   condition: eq(variables['build.sourceBranch'], 'refs/heads/dev')
 
   jobs:
   - deployment: Deploy
-    displayName: Deploy
+    displayName: FunctionApp
     environment: 'production'
     pool:
       vmImage: $(vmImageName)
