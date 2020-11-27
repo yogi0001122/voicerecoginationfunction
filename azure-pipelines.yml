@@ -108,7 +108,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: FunctionApp
-    environment: 'production'
+    environment: 'prod'
     pool:
       vmImage: $(vmImageName)
 
