@@ -84,7 +84,31 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: FunctionApp
-    environment: 'production'
+    environment: 'cert'
+    pool:
+      vmImage: $(vmImageName)
+
+    strategy:
+      runOnce:
+        deploy:
+
+          steps:
+          - task: AzureFunctionApp@1
+            displayName: 'Azure functions app deploy'
+            inputs:
+              azureSubscription: '$(azureSubscription)'
+              appType: functionAppLinux
+              appName: $(functionAppName)
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+
+- stage: ReleasePROD
+  displayName: PROD
+  condition: and(eq(variables['build.sourceBranch'], 'refs/heads/cert'), succeeded())
+
+  jobs:
+  - deployment: Deploy
+    displayName: FunctionApp
+    environment: 'prod'
     pool:
       vmImage: $(vmImageName)
 
