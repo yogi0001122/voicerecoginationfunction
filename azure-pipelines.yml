@@ -55,7 +55,6 @@ stages:
 
 - stage: ReleaseDEV
   displayName: DEV
-  dependsOn: Build
   condition: and(eq(variables['build.sourceBranch'], 'refs/heads/dev'), succeeded())
 
   jobs:
@@ -80,7 +79,6 @@ stages:
 
 - stage: ReleaseCERT
   displayName: CERT
-  dependsOn: Build
   condition: and(eq(variables['build.sourceBranch'], 'refs/heads/cert'), succeeded())
 
   jobs:
