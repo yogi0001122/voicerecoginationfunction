@@ -18,7 +18,7 @@ def speech_recognize_continuous_from_file(weatherfilename):
     def handle_final_result(evt):
          all_results.append(evt.result.text)
 
-    """performs continuous speech recognition with input from an audio file"""
+    """performs continuous speech recognition with input from an audio file new"""
     # <SpeechContinuousRecognitionWithFile>
     speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
     audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
