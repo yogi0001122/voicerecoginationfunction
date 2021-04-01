@@ -56,8 +56,6 @@ stages:
 
   
 - stage: ReleaseDEV
-schedules:
-  - cron: "* * * * *"
   displayName: DEV
   condition: and(eq(variables['build.sourceBranch'], 'refs/heads/dev'), succeeded())
 
