@@ -8,7 +8,7 @@ import datetime
 import tempfile
 
 
-speech_key, service_region = "4a33d86a968e4a7eb34df38e15e883e9", "centralus"
+speech_key, service_region = "<Voice to test Congnitive service Key>", "<Region>"
 
 
 def speech_recognize_continuous_from_file(weatherfilename):
