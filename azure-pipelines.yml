@@ -1,6 +1,6 @@
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '6f6226c4-6455-4abe-bc29-7ed1a187db1b'
+  azureSubscription: '<subscription id>'
 
   # Function app name
   functionAppName: 'newpythonfunction'
