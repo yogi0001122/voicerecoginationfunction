@@ -1,1 +1,1 @@
-# This repo use for transcribe voice message to text and deploy to azure function using Azure DevOps
+# Repository for transcribe voice message to text and deploy to azure function using Azure DevOps
